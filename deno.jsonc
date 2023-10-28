@@ -5,5 +5,9 @@
     "npm:graphql@16.6.0": "https://esm.sh/graphql@^16.8.1",
     "gql": "https://deno.land/x/gql@1.2.4/mod.ts",
     "grats": "https://esm.sh/grats@^0.0.4"
+  },
+  "tasks": {
+    "grats-gen": "deno run --allow-read --allow-write=\"./schema.graphql\" npm:grats/dist/src/cli.js --output=./schema.graphql",
+    "server": "deno run -A server.ts"
   }
 }
