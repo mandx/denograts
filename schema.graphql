@@ -1,0 +1,26 @@
+schema {
+  query: Query
+}
+
+directive @exported(filename: String!, functionName: String!) on FIELD_DEFINITION
+
+directive @methodName(name: String!) on FIELD_DEFINITION
+
+interface Node {
+  id: ID!
+}
+
+type Query {
+  me: User!
+  node(id: ID!): Node
+  testFloat: Float!
+  testInt: Int!
+  viewer: User! @deprecated(reason: "Please use `me` instead.")
+}
+
+"""A user in our kick-ass system!"""
+type User implements Node {
+  greeting(salutation: String!): String!
+  id: ID!
+  name: String!
+}
